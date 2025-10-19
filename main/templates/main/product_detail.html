@@ -105,7 +105,7 @@
 
             <!-- Product Details -->
             <div class="border-t border-gray-200 pt-6">
-                <h3 class="text-sm font-medium text-gray-900 mb-3">DETAILS</h3>
+                <h3 class="text-sm font-medium text-gray-900 mb-3">ОПИС</h3>
                 <div class="prose prose-sm text-gray-600">
                     <p>{{ product.description|linebreaks }}</p>
                     <p>Created: {{ product.created_at|date:"F d, Y" }}</p>
@@ -114,11 +114,11 @@
 
             <!-- Care Instructions -->
             <div class="border-t border-gray-200 pt-6">
-                <h3 class="text-sm font-medium text-gray-900 mb-3">CARE</h3>
+                <h3 class="text-sm font-medium text-gray-900 mb-3">ДОГЛЯД</h3>
                 <div class="prose prose-sm text-gray-600">
-                    <p>Professional dry clean only</p>
-                    <p>Do not bleach</p>
-                    <p>Iron at low temperature</p>
+                    <p>Тільки професійна хімчистка</p>
+                    <p>Не відбілювати</p>
+                    <p>Праска при низькій температурі</p>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
     <!-- Related Products -->
     {% if related_products %}
     <div class="mt-16 border-t border-gray-200 pt-16">
-        <h2 class="text-xl font-bold tracking-tight text-gray-900 mb-8">YOU MAY ALSO LIKE</h2>
+        <h2 class="text-xl font-bold tracking-tight text-gray-900 mb-8">ВАМ ТАКОЖ МОЖЕ СПОДОБАТИСЯ</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {% for related_product in related_products %}
             <div class="product-card group cursor-pointer" 
@@ -194,8 +194,7 @@
         }
     }
 
-    // Для корзины! На момент 14.10, не будет открываться страница одежды
-    {% comment %} function addToCart() {
+    function addToCart() {
         const productSlug = '{{ product.slug }}';
         console.log('Product Slug:', productSlug);
         
@@ -239,7 +238,7 @@
             console.error('Error:', error);
             showNotification('Error adding to cart');
         });
-    } {% endcomment %}
+    }
     
     function getCookie(name) {
         let cookieValue = null;

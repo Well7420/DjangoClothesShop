@@ -11,7 +11,7 @@ class AddToCartForm(forms.Form):
         self.product = product
 
         if product:
-            sizes = product.productsizes.filter(stock__gt=0)
+            sizes = product.product_sizes.filter(stock__gt=0)
             if sizes.exists():
                 self.fields['size_id'] = forms.ChoiceField(
                     choices=[(ps.id, ps.size.name) for ps in sizes],

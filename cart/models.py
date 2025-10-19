@@ -30,9 +30,7 @@ class Cart(models.Model):
 
         if not created:
             cart_item.quantity += quantity
-        else:
-            cart_item.quantity = quantity
-        cart_item.save()
+            cart_item.save()
 
         return cart_item
 
@@ -49,7 +47,7 @@ class Cart(models.Model):
             item = self.items.get(id=item_id)
             if quantity > 0:
                 item.quantity = quantity
-                item.save()
+                item.sav()
             else:
                 item.delete()
             return True
@@ -72,8 +70,8 @@ class CartItem(models.Model):
         unique_together = ('cart', 'product', 'product_size')
 
     def __str__(self):
-        return f"{self.product.name} - {self.product_size.size.name} ({self.quantity})"
+        return f"{self.product.name} - {self.product_size.size.name} x {self.quantity}"
 
     @property
     def total_price(self):
-        return Decimal(str(self.product.price) * self.quantity)
+        return Decimal(str(self.product.price)) * self.quantity
